@@ -11,6 +11,7 @@ engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 # print(voices[1].id)
 engine.setProperty('voice', voices[0].id)
+engine.setProperty('rate', 150) # Decrease the Speed Rate 
 
 
 def speak(audio):
