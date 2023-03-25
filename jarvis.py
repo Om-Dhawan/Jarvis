@@ -3,6 +3,7 @@ import speech_recognition as sr #pip install speechRecognition
 import datetime
 import wikipedia #pip install wikipedia
 import webbrowser
+import pyjokes
 import os
 import smtplib
 from email.message import EmailMessage
@@ -93,36 +94,32 @@ if __name__ == "__main__":
             print(results)
             speak(results)
             
-        elif 'who is' in command:
-            person = command.replace('who is', '')
+        elif 'who is' in query:
+            person = query.replace('who is', '')
             info = wikipedia.summary(person, 2)
             print(info)
-            talk(info)
-            done()
+            speak(info)
             # talk("Task completed successfully, now what's next task for me?")
             
-        elif 'what is' in command:
-            thing = command.replace('what is', '')
+        elif 'what is' in query:
+            thing = query.replace('what is', '')
             info = wikipedia.summary(thing, 2)
             print(info)
-            talk(info)
-            done()
+            speak(info)
             # talk("Task completed successfully, now what's next task for me?")
         
-        elif 'time' in command:
+        elif 'time' in query:
             time = datetime.datetime.now().strftime("%H:%M:%S")
-            talk('Sir, Current time is ' + time)
-            done()
+            speak('Sir, Current time is ' + time)
             # talk("Task completed successfully, now what's next task for me?")
             
-        elif 'are you single' in command:
-            talk('I am in a relationship with Alexa')
+        elif 'are you single' in query:
+            speak('I am in a relationship with Alexa')
             
-        elif 'joke' in command:
+        elif 'joke' in query:
             j=pyjokes.get_joke()
             print(j)
-            talk(j)
-            done()
+            speak(j)
             # talk("Task completed successfully, now what's next task for me?")
 
         elif 'open youtube' in query:
